@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "filename": {
+      "type": "string",
+      "description": "Original PDF filename"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "subject": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "string"
+        },
+        "pageCount": {
+          "type": "integer"
+        },
+        "creationDate": {
+          "type": "string"
+        },
+        "modificationDate": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pageCount"
+      ]
+    },
+    "structure": {
+      "type": "object",
+      "properties": {
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": [
+                  "heading",
+                  "paragraph",
+                  "table",
+                  "list",
+                  "image",
+                  "footnote"
+                ]
+              },
+              "content": {
+                "type": "string"
+              },
+              "level": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "Heading level (1 for main heading, 2 for subheading, etc.)"
+              },
+              "page": {
+                "type": "integer"
+              },
+              "bbox": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "Bounding box coordinates [x0, y0, x1, y1]"
+              },
+              "font": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "size": {
+                    "type": "number"
+                  },
+                  "flags": {
+                    "type": "integer"
+                  },
+                  "color": {
+                    "type": "integer"
+                  }
+                }
+              }
+            },
+            "required": [
+              "type",
+              "content",
+              "page"
+            ]
+          }
+        },
+        "outline": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "level": {
+                "type": "integer"
+              },
+              "page": {
+                "type": "integer"
+              }
+            },
+            "required": [
+              "title",
+              "level",
+              "page"
+            ]
+          }
+        }
+      },
+      "required": [
+        "sections"
+      ]
+    },
+    "processing_info": {
+      "type": "object",
+      "properties": {
+        "processing_time": {
+          "type": "number"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "library_version": {
+          "type": "string"
+        },
+        "total_sections": {
+          "type": "integer"
+        }
+      }
+    }
+  },
+  "required": [
+    "filename",
+    "metadata",
+    "structure"
+  ]
+}

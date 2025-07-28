@@ -1,0 +1,8 @@
+pymupdf==1.23.7        # blazing-fast PDF parsing [12]
+sentence-transformers==2.7.0  # includes MiniLM-L6-v2 (22 MB) [3][8]
+faiss-cpu==1.7.4        # similarity search [34]
+yake==0.4.8             # keyword extractor [33]
+rake-nltk==1.0.6        # fallback keyword extractor [15][20]
+sumy==0.10.0            # LSA/TexRank compressors [39]
+pydantic==2.7.4         # schema validation
+tqdm==4.66.4            # progress bars

@@ -1,0 +1,26 @@
+# Adobe India Hackathon 2025 - Challenge 1a Dependencies
+# High-performance PDF processing requirements
+
+# Core PDF processing library (fastest and most reliable)
+PyMuPDF>=1.23.0,<1.25.0
+
+# JSON schema validation (optional but recommended)
+jsonschema>=4.17.0,<5.0.0
+
+# Performance and utility libraries (built into Python 3.10+)
+# pathlib - Built-in
+# concurrent.futures - Built-in
+# multiprocessing - Built-in
+# logging - Built-in
+# datetime - Built-in
+# json - Built-in
+# time - Built-in
+# gc - Built-in
+# os - Built-in
+# typing - Built-in
+
+# Note: We're keeping dependencies minimal for:
+# 1. Faster Docker build times
+# 2. Smaller image size
+# 3. Better reliability and fewer conflicts
+# 4. Meeting the challenge's performance constraints
